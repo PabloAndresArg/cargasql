@@ -1,0 +1,18 @@
+LOAD DATA INFILE '/home/pabloandresarg/bases/cargasql/CargaP-II.csv'  
+	into table temporal2
+	character set latin1
+	fields terminated by ';'
+	lines terminated by '\n'
+	ignore 1 lines
+(
+@NOMBRE_ENCUESTA,
+@PREGUNTA,
+@RESPUESTAS_POSIBLES,
+@RESPUESTA_CORRECTA,
+@PAIS,
+@RESPUESTA_PAIS
+)set NOMBRE_ENCUESTA =  trim(NULLIF(@NOMBRE_ENCUESTA,'')),PREGUNTA =  TRIM(NULLIF(@PREGUNTA,'')),
+RESPUESTAS_POSIBLES =  trim(NULLIF(@RESPUESTAS_POSIBLES,'')) , RESPUESTA_CORRECTA =  trim(NULLIF(@RESPUESTA_CORRECTA,'')), 
+PAIS =  TRIM(NULLIF(@PAIS,'')),
+RESPUESTA_PAIS = TRIM(NULLIF(@RESPUESTA_PAIS,'')
+);

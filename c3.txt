@@ -1,0 +1,10 @@
+LOAD DATA INFILE '/home/pabloandresarg/bases/cargasql/CargaP-III.csv'  
+	into table temporal3
+	character set latin1
+	fields terminated by ';'
+	lines terminated by '\n'
+	ignore 1 lines
+(
+@NOMBRE_REGION
+,@REGION_PADRE
+)set NOMBRE_REGION =  TRIM(NULLIF(@NOMBRE_REGION,'')), REGION_PADRE= TRIM(NULLIF(@REGION_PADRE,''));
